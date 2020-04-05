@@ -1,0 +1,11 @@
+version: "3"
+services:
+  tex:
+    build: .
+    volumes:
+      - .:/home/ubuntu/tex
+
+    tty: true
+    stdin_open: true
+
+    command: pdflatex -shell-escape main.tex
