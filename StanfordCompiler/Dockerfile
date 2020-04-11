@@ -21,9 +21,8 @@ RUN sudo wget https://s3-us-west-1.amazonaws.com/prod-edx/Compilers/Misc/student
     echo PATH=/usr/class/cs143/bin:$PATH >> ~/.bashrc && \
     sudo mkdir /usr/class/cs143/cool && \
     sudo ln -s /usr/class/cs143/bin /usr/class/cs143/cool && \
-    sudo ln -s /usr/class/cs143/lib /usr/class/cs143/cool
-
-COPY spim /usr/class/cs143/bin/spim
+    sudo ln -s /usr/class/cs143/lib /usr/class/cs143/cool && \
+    sudo sed -i "s/exec\ \$xname \"\$@\"/exec \$xname\ -trap_file\ \/usr\/class\/cs143\/cool\/lib\/trap.handler\ \"\$@\"/" /usr/class/cs143/bin/spim
 
 # Download grading scripts
 RUN cd /home/ubuntu && \
