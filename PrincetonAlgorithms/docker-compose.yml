@@ -1,0 +1,18 @@
+version: "3"
+services:
+  algs4:
+    build: .
+
+    environment:
+      - DISPLAY=$DISPLAY
+
+    network_mode: "host"
+
+    volumes:
+      - $HOME/.Xauthority:/home/algs4/.Xauthority
+
+    # working_dir: /home/algs4/lecture
+
+    tty: true
+    stdin_open: true
+
